@@ -1,0 +1,32 @@
+---
+interface Props {
+  href: string;
+  external?: boolean;
+}
+
+const { href, external } = Astro.props;
+const rel = external ? "noopener noreferrer" : undefined;
+const target = external ? "_blank" : undefined;
+---
+
+<a class="navbar__link" href={href} rel={rel} target={target}>
+  <slot />
+</a>
+
+<style>
+  .navbar__link {
+    color: #6b7381;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .navbar__link:visited {
+    color: #6b7381;
+  }
+
+  .navbar__link:hover,
+  .navbar__link:focus {
+    color: #27272a;
+  }
+</style>

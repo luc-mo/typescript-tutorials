@@ -1,0 +1,2 @@
+- [ ] Add styles to sidebar article list
+- [ ] Add light/dark mode toggle

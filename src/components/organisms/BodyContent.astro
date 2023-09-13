@@ -1,0 +1,19 @@
+---
+import Header from "@/components/molecules/Header.astro";
+import Footer from "@/components/atoms/Footer.astro";
+import { titles } from "@/config/titles";
+import { navLinks } from "@/config/nav";
+import type { Lang } from "@/types/lang";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<>
+  <Header title={titles[lang]} links={navLinks[lang]} />
+  <slot />
+  <Footer />
+</>

@@ -1,0 +1,82 @@
+---
+import Html from "@/layouts/Html.astro";
+import ArticleCards from "@/components/molecules/ArticleCards.astro";
+
+const articles = [
+  {
+    title: "Fundamentos de TypeScript",
+    description: "Aprende los conceptos básicos de TypeScript",
+    url: "/es/fundamentos/instalacion",
+  },
+  {
+    title: "Fundamentos de TypeScript",
+    description: "Aprende los conceptos básicos de TypeScript",
+    url: "/es/fundamentos/instalacion",
+  },
+];
+---
+
+<Html
+  title="Tutoriales de TypeScript"
+  description="Tutoriales de TypeScript"
+  lang="es"
+>
+  <main class="page-main">
+    <div class="content">
+      <section>
+        <h1 class="content__title">Empezando</h1>
+        <p>
+          En este blog podrás encontrar multiples articulos sobre TypeScript,
+          desde sus conceptos basicos hasta temas más avanzados. También podrás
+          encontrar ejemplos sobre su uso en frameworks como React o Express.
+        </p>
+      </section>
+      <section>
+        <h3 class="content__subtitle">Advertencia</h3>
+        <p>
+          Algunas definiciones de los ejemplos pueden no ser las más adecuadas,
+          pero se han realizado de esta manera para facilitar la comprensión de
+          los conceptos de TypeScript y de dar ejemplos prácticos de su uso,
+          para ahondar más a fondo en el lenguaje, se recomienda consultar la
+          <a
+            href="https://www.typescriptlang.org/docs/handbook"
+            target="_blank"
+            rel="noopener noreferrer">documentación oficial</a
+          >.
+        </p>
+      </section>
+      <section>
+        <h3 class="content__subtitle">Articulos</h3>
+        <p>
+          Actualmente, contamos con una variedad de articulos que cubren los
+          aspectos principales de TypeScript, su uso en frameworks y otros temas
+          generales.
+        </p>
+        <ArticleCards articles={articles} />
+      </section>
+    </div>
+  </main>
+</Html>
+
+<style>
+  .page-main {
+    grid-area: main;
+    padding: 2rem;
+  }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .content__title {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .content__subtitle {
+    margin-bottom: 0.4rem;
+    font-size: 1.8rem;
+  }
+</style>

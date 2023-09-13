@@ -1,0 +1,23 @@
+---
+import ArticleCard from "@/components/atoms/ArticleCard.astro";
+import type { Article } from "@/types/article";
+
+interface Props {
+  articles: Article[];
+}
+
+const { articles } = Astro.props;
+---
+
+<ul class="article-cards">
+  {articles.map((article) => <ArticleCard {...article} />)}
+</ul>
+
+<style>
+  .article-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    list-style: none;
+  }
+</style>

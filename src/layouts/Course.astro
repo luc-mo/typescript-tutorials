@@ -1,0 +1,99 @@
+---
+import dayjs from "dayjs";
+import tz from "dayjs/plugin/timezone";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(tz);
+dayjs.extend(customParseFormat);
+
+import Html from "@/layouts/Html.astro";
+
+interface Frontmatter {
+  title: string;
+  createdAt: string;
+  description: string;
+  section: string;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props;
+const { title, createdAt, description, section } = frontmatter;
+
+const allArticles = await Astro.glob<Frontmatter>("../pages/**/*.md");
+const articles = allArticles.filter((article) => article.url.includes(section));
+
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
+---
+
+<Html title={title} description={description} lang="es">
+  <div class="content">
+    <aside class="sidebar">
+      <h2 class="sidebar__title">Índice</h2>
+      <!-- TODO Add styles to sidebar article list -->
+      <ol class="sidebar__list">
+        {
+          articles.map((article) => (
+            <li>
+              <a href={article.url}>{article.frontmatter.title}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </aside>
+    <main class="content__article">
+      <h1 class="article__title">{title}</h1>
+      <div class="article__date">
+        <time datetime={createdAt}>{date}</time>
+      </div>
+      <p>{description}</p>
+      <slot />
+    </main>
+  </div>
+</Html>
+
+<style>
+  .content {
+    grid-area: main;
+    display: flex;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .content__article {
+    max-width: 720px;
+  }
+
+  .article__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .article__date {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+</style>
+
+<style>
+  .sidebar {
+    padding: 1rem 0;
+    margin-right: 6rem;
+  }
+
+  .sidebar__title {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1.125rem;
+  }
+</style>

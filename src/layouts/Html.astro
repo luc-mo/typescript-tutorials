@@ -1,0 +1,110 @@
+---
+import BodyContent from "@/components/organisms/BodyContent.astro";
+import type { Lang } from "@/types/lang";
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+}
+
+const { title, description, lang } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <BodyContent lang={lang}>
+      <slot />
+    </BodyContent>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi-Bold.woff2") format("woff2");
+    font-weight: bold;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --white: #fafbfc;
+    --black: #27272a;
+    --ultra-white: #ffffff;
+    --ultra-black: #000000;
+
+    --dark-grey: #191919;
+    --dark-grey-hover: #141414;
+
+    --light-grey: #f2f2f2;
+    --light-grey-hover: #e2e2e2;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "main" "footer";
+    background-color: var(--white);
+    color: var(--black);
+    font-family: "Satoshi", sans-serif;
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+
+  p {
+    margin-bottom: 1.8rem;
+    font-size: 1.125rem;
+    line-height: 1.8rem;
+  }
+
+  a:visited {
+    color: var(--black);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--black);
+      color: var(--white);
+    }
+
+    a:visited {
+      color: var(--white);
+    }
+  }
+</style>
