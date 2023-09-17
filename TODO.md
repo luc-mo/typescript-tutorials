@@ -1,2 +1,3 @@
 - [ ] Add styles to sidebar article list
+- [ ] Add footer language props
 - [ ] Add light/dark mode toggle
