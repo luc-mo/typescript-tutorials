@@ -56,6 +56,20 @@ const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
   </div>
 </Html>
 
+<style is:global>
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 1.125rem;
+    padding: 0 2rem;
+  }
+</style>
+
 <style>
   .content {
     grid-area: main;
