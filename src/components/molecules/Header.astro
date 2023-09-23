@@ -1,6 +1,7 @@
 ---
 import Navbar from "@/components/atoms/Navbar.astro";
 import Navlink from "@/components/atoms/Navlink.astro";
+import ThemeButton from '@/components/atoms/ThemeButton.astro';
 import type { Link } from "@/types/link";
 
 interface Props {
@@ -15,6 +16,7 @@ const { title, links } = Astro.props;
   <h2 class="page-header__title">{title}</h2>
   <Navbar>
     {links.map(({ text, ...rest }) => <Navlink {...rest}>{text}</Navlink>)}
+    <ThemeButton />
     <!-- TODO Add light/dark mode toggle -->
   </Navbar>
 </header>

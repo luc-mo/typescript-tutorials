@@ -1,0 +1,15 @@
+---
+import moon from '@/assets/moon.svg'
+import sun from '@/assets/sun.svg'
+---
+<button id='theme-button' class='theme-button'>
+  <img
+    id='theme-icon'
+    class='theme-icon'
+    src={moon.src}
+    width={moon.width}
+    height={moon.height}
+    alt='dark mode icon'
+    onclick='toggleTheme()'
+  />
+</button>

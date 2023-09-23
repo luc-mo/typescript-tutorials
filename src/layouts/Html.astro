@@ -21,6 +21,7 @@ const { title, description, lang } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline type='module' src='/scripts/loadTheme.js'></script>
+    <script is:inline defer src='/scripts/toggleTheme.js'></script>
   </head>
   <body>
     <BodyContent lang={lang}>
@@ -71,8 +72,6 @@ const { title, description, lang } = Astro.props;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header" "main" "footer";
-    background-color: var(--white);
-    color: var(--black);
     font-family: "Satoshi", sans-serif;
   }
 
@@ -93,18 +92,21 @@ const { title, description, lang } = Astro.props;
     line-height: 1.8rem;
   }
 
-  a:visited {
+  body.dark {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  body.light {
+    background-color: var(--white);
     color: var(--black);
   }
 
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: var(--black);
-      color: var(--white);
-    }
+  body.dark a:visited {
+    color: var(--white);
+  }
 
-    a:visited {
-      color: var(--white);
-    }
+  body.light a:visited {
+    color: var(--black);
   }
 </style>
