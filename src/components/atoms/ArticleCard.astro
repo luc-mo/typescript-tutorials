@@ -44,14 +44,21 @@ const { title, description, url } = Astro.props;
     line-height: initial;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .article-card__link {
-      background-color: var(--dark-grey);
-      color: var(--white);
-    }
+  body.dark .article-card__link {
+    background-color: var(--dark-grey);
+    color: var(--white);
+  }
 
-    .article-card__link:hover {
-      background-color: var(--dark-grey-hover);
-    }
+  body.dark .article-card__link:hover {
+    background-color: var(--dark-grey-hover);
+  }
+
+  body.light .article-card__link {
+    background-color: var(--light-grey);
+    color: var(--black);
+  }
+
+  body.light .article-card__link:hover {
+    background-color: var(--light-grey-hover);
   }
 </style>
