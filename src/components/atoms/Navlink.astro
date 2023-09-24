@@ -15,18 +15,32 @@ const target = external ? "_blank" : undefined;
 
 <style>
   .navbar__link {
-    color: #6b7381;
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
   }
 
-  .navbar__link:visited {
-    color: #6b7381;
+  body.dark .navbar__link,
+  body.dark .navbar__link:visited {
+    color: var(--navitem-dark);
   }
 
-  .navbar__link:hover,
-  .navbar__link:focus {
-    color: #27272a;
+  body.dark .navbar__link:hover,
+  body.dark .navbar__link:focus,
+  body.dark .navbar__link:visited:hover,
+  body.dark .navbar__link:visited:focus {
+    color: var(--navitem-dark-hover);
+  }
+
+  body.light .navbar__link,
+  body.light .navbar__link:visited {
+    color: var(--navitem-light);
+  }
+
+  body.light .navbar__link:hover,
+  body.light .navbar__link:focus,
+  body.light .navbar__link:visited:hover,
+  body.light .navbar__link:visited:focus {
+    color: var(--navitem-light-hover);
   }
 </style>
