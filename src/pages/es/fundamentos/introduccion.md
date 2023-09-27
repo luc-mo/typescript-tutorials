@@ -2,7 +2,7 @@
 title: Introducción
 createdAt: '13-09-2023'
 updatedAt: '13-09-2023'
-description: ''
+description: 'Introducción a los fundamentos de TypeScript'
 section: 'fundamentos'
 sort: 0
 layout: '@/layouts/Course.astro'
