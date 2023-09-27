@@ -1,7 +1,7 @@
 ---
 title: Introducción
-createdAt: '13-09-2023'
-updatedAt: '13-09-2023'
+createdAt: '27-09-2023'
+updatedAt: '27-09-2023'
 description: 'Introducción a los fundamentos de TypeScript'
 section: 'fundamentos'
 sort: 0
@@ -35,11 +35,11 @@ const y: string = concat('Hello', 'world')
 ```
 
 ### Archivo tsconfig.json
-Este es el archivo de configuración de TypeScript. Se utiliza para definir la forma en la que el compilador “lee” y [transpila](https://es.wikipedia.org/wiki/Transpilador) nuestro código.
+Este es el archivo de configuración de TypeScript. Se utiliza para definir la forma en la que el compilador “lee” y <a href='https://es.wikipedia.org/wiki/Transpilador' target='_blank' rel='noopener noreferrer'>transpila</a> nuestro código.
 
 En muchas guías o tutoriales se suelen referenciar algunas propiedades de este archivo (o directamente inicializarlo), lo cual puede ser bastante abrumador debido a la gran cantidad de opciones que este tiene.
 
-Por esto, para esta guía recomendamos utilizar el [playground](https://www.typescriptlang.org/play) de TypeScript o, en caso de que quieras utilizarlo en tu máquina local, puedes seguir nuestra guía de instalación y utilizar nuestra configuración recomendada.
+Por esto, para esta guía recomendamos utilizar el <a href='https://www.typescriptlang.org/play' target='_blank' rel='noopener noreferrer'>playground</a> de TypeScript o, en caso de que quieras utilizarlo en tu máquina local, puedes seguir nuestra guía de instalación y utilizar nuestra configuración recomendada.
 
 Conociendo estos conceptos, ya podemos adentrarnos en los fundamentos de TypeScript.
 
