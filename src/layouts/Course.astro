@@ -14,6 +14,7 @@ interface Frontmatter {
   createdAt: string;
   description: string;
   section: string;
+  sort: number;
 }
 
 interface Props {
@@ -24,7 +25,8 @@ const { frontmatter } = Astro.props;
 const { title, createdAt, description, section } = frontmatter;
 
 const allArticles = await Astro.glob<Frontmatter>("../pages/**/*.md");
-const articles = allArticles.filter((article) => article.url.includes(section));
+const filtered = allArticles.filter((article) => article.url.includes(section));
+const articles = filtered.sort((a, b) => a.frontmatter.sort - b.frontmatter.sort)
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
@@ -67,6 +69,11 @@ const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
     gap: 0.6rem;
     font-size: 1.125rem;
     padding: 0 2rem;
+  }
+
+  pre {
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
 </style>
 
