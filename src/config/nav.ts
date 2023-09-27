@@ -8,12 +8,12 @@ type NavLinks = {
 export const navLinks: NavLinks = {
   es: [
     { text: "Inicio", href: "/es" },
-    { text: "Fundamentos", href: "/es/fundamentos/tipos-primitivos" },
+    { text: "Fundamentos", href: "/es/fundamentos/introduccion" },
     { text: "Artículos", href: "/es/articulos" },
   ],
   en: [
     { text: "Home", href: "/en" },
-    { text: "Fundamentals", href: "/en/fundamentals/installation" },
+    { text: "Fundamentals", href: "/en/fundamentals/introduction" },
     { text: "Articles", href: "/en/articles" },
   ]
 }
