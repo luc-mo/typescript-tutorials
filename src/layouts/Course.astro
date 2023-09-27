@@ -51,7 +51,6 @@ const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
       <div class="article__date">
         <time datetime={createdAt}>{date}</time>
       </div>
-      <p>{description}</p>
       <slot />
     </main>
   </div>
@@ -79,7 +78,8 @@ const date = dayjs(createdAt, "DD-MM-YYYY").tz(timezone).format("DD MMM, YYYY");
 <style>
   .content {
     grid-area: main;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     margin: 0 auto;
     padding: 2rem;
   }
