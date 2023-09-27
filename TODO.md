@@ -1,3 +1,3 @@
-- [ ] Add styles to sidebar article list
+- [X] Add styles to sidebar article list
 - [ ] Add footer language props
-- [ ] Add light/dark mode toggle
+- [X] Add light/dark mode toggle

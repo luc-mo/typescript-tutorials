@@ -17,7 +17,6 @@ const { title, links } = Astro.props;
   <Navbar>
     {links.map(({ text, ...rest }) => <Navlink {...rest}>{text}</Navlink>)}
     <ThemeButton />
-    <!-- TODO Add light/dark mode toggle -->
   </Navbar>
 </header>
 
