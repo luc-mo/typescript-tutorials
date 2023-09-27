@@ -66,7 +66,6 @@ const { title, description, lang } = Astro.props;
 
     --navitem-light: #6b7381;
     --navitem-light-hover: #27272a;
-    
   }
 
   html,
@@ -108,6 +107,14 @@ const { title, description, lang } = Astro.props;
     background-color: var(--white);
     color: var(--black);
   }
+  
+  body.dark a {
+    color: var(--white);
+  }
+
+  body.light a {
+    color: var(--black);
+  }
 
   body.dark a:visited {
     color: var(--white);
@@ -115,5 +122,23 @@ const { title, description, lang } = Astro.props;
 
   body.light a:visited {
     color: var(--black);
+  }
+
+  body.light .light-theme-icon:hover path,
+  body.light .light-theme-icon:focus path {
+    fill: var(--navitem-light-hover);
+  }
+
+  body.dark .dark-theme-icon:hover path,
+  body.dark .dark-theme-icon:focus path {
+    fill: var(--navitem-dark-hover);
+  }
+
+  body.light .dark-theme-icon {
+    display: none;
+  }
+
+  body.dark .light-theme-icon {
+    display: none;
   }
 </style>
