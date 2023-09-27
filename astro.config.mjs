@@ -4,5 +4,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   redirects: {
     '/': '/es',
+  },
+  server: {
+    port: 5173
   }
 });
